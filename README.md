@@ -1,6 +1,8 @@
 # Quantum Computing Algorithms – Dong Phu Trong
 
-This repository contains practical implementations of foundational quantum algorithms using Qiskit, with additional numerical modeling in quantitative finance.
+This repository presents structured implementations of foundational quantum algorithms using Qiskit, with additional numerical modeling for comparison and validation.
+
+The work emphasizes mathematical formulation, circuit-level construction, and hybrid quantum-classical optimization in the NISQ era.
 
 The focus is on:
 - Near-term quantum computing (NISQ era)
@@ -31,6 +33,43 @@ File: `grover_demo.py`
 File: `vqe_demo.py`
 
 ---
+## Mathematical Background
+
+### Grover Operator
+
+The Grover iteration is defined as:
+
+G = (2|s><s| − I) O
+
+where:
+|s> is the uniform superposition state  
+O is the oracle operator  
+
+This produces amplitude amplification of the marked state.
+The diffusion operator (2|s><s| − I) performs reflection about the mean amplitude, which enables quadratic speedup over classical search.
+
+---
+
+### Variational Quantum Eigensolver (VQE)
+
+The objective function minimized in VQE is:
+
+E(θ) = ⟨ψ(θ)| H |ψ(θ)⟩
+
+where:
+ψ(θ) is a parameterized quantum state  
+H is the Hamiltonian operator  
+
+The optimization is performed using classical search over parameter space. 
+The variational principle guarantees that the estimated energy is an upper bound to the true ground state energy.
+## Project Structure
+
+quantum-algorithms/
+│
+├── grover_demo.py
+├── vqe_demo.py
+├── option_pricing.py
+└── README.md
 
 ## ⚙️ Technologies
 
@@ -57,6 +96,7 @@ Run VQE:
 python vqe_demo.py
 
 ---
+While the primary focus is quantum algorithms, classical stochastic modeling is included to demonstrate hybrid computational reasoning and numerical validation skills.
 
 # 📈 Classical Modeling Extension: Monte Carlo Option Pricing
 
@@ -103,4 +143,4 @@ Absolute error: 0.02
 
 Dong Phu Trong  
 Electronics & Telecommunications Engineering – HUST  
-Research Interests: Quantum Computing | Optimization | Applied Mathematics
+Research Interests: Quantum Computing | Hybrid Optimization | Applied Mathematics
