@@ -1,40 +1,46 @@
-# Quantum Computing Research Portfolio
+# Quantum Computing Algorithms – Dong Phu Trong
 
-This repository contains my foundational implementations of quantum algorithms
-using Python and Qiskit. It serves as part of my long-term journey toward
-research in quantum computing and quantum information theory.
+This repository contains practical implementations of foundational quantum algorithms using Qiskit.  
+The focus is on near-term quantum computing (NISQ era) and hybrid quantum-classical optimization techniques.
 
 ---
 
-## About Me
+## Overview
 
-Hi, I'm **Dong Phu Trong**, an Honors Engineering student in Electronics & Telecommunications at Hanoi University of Science and Technology (HUST), Vietnam.
+Quantum computing introduces new computational paradigms based on quantum mechanics principles such as superposition and entanglement.  
 
-I am currently focusing on:
-
-- Quantum algorithms
-- Hybrid quantum-classical optimization
-- Variational methods
-- Quantum circuit simulation
-- Noise modeling in NISQ devices
-
-My goal is to pursue advanced research in quantum computing and contribute to
-the development of near-term quantum algorithms.
+This project explores core quantum algorithms and their circuit-level implementation.
 
 ---
 
 ## Implemented Algorithms
 
-### Grover's Algorithm (2-qubit demonstration)
-
-This implementation includes:
-
-- Custom oracle construction
-- Diffuser operator implementation
-- Statevector simulation
-- Measurement probability analysis
+### 1️⃣ Grover's Search Algorithm
+- Demonstrates amplitude amplification
+- Provides quadratic speedup for unstructured search problems
+- Built using Qiskit quantum circuits
+- Includes measurement probability analysis
 
 File: `grover_demo.py`
+
+---
+
+### 2️⃣ Variational Quantum Eigensolver (VQE)
+- Hybrid quantum-classical optimization algorithm
+- Uses parameterized ansatz
+- Estimates ground state energy of a Hamiltonian
+- Demonstrates NISQ-compatible approach
+
+File: `vqe_demo.py`
+
+---
+
+## Technologies Used
+
+- Python 3.10+
+- Qiskit
+- NumPy
+- Matplotlib
 
 ---
 
@@ -44,35 +50,27 @@ Install dependencies:
 
 pip install qiskit numpy matplotlib
 
-Run the demo:
+Run Grover demo:
 
 python grover_demo.py
 
-Tested with Python 3.10+
+Run VQE demo:
+
+python vqe_demo.py
 
 ---
 
-## Roadmap
+## Future Work
 
-- [x] Grover's Algorithm
-- [ ] Variational Quantum Eigensolver (VQE)
-- [ ] QAOA
-- [ ] Noise simulation
-- [ ] Hybrid optimization experiments
-
----
-
-## Project Motivation
-
-This repository is part of my journey toward quantum computing research.
-I aim to deeply understand quantum algorithms through implementation
-rather than theory alone.
+- QAOA implementation
+- Noise simulation
+- Quantum optimization experiments
+- Quantum machine learning exploration
 
 ---
 
-## Tech Stack
+## Author
 
-- Python
-- Qiskit
-- NumPy
-- Matplotlib
+Dong Phu Trong  
+Engineering Student – Electronics & Telecommunications  
+Research Interest: Quantum Computing | Optimization | Applied Mathematics
