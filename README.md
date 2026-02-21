@@ -62,14 +62,15 @@ H is the Hamiltonian operator
 
 The optimization is performed using classical search over parameter space. 
 The variational principle guarantees that the estimated energy is an upper bound to the true ground state energy.
-## Project Structure
 
+## Project Structure
 quantum-algorithms/
 │
 ├── grover_demo.py
 ├── vqe_demo.py
 ├── option_pricing.py
 └── README.md
+
 
 ## ⚙️ Technologies
 
