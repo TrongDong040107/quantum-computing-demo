@@ -12,6 +12,15 @@ Quantum computing introduces new computational paradigms based on quantum mechan
 This project explores core quantum algorithms and their circuit-level implementation.
 
 ---
+## Quantum Computing Projects Overview
+
+This repository contains small-scale implementations of:
+
+- Grover's search algorithm
+- Variational Quantum Eigensolver (VQE)
+- Classical Monte Carlo simulation (for comparison and modeling)
+
+All quantum circuits are implemented using Qiskit and simulated on classical backends.
 
 ## Implemented Algorithms
 
