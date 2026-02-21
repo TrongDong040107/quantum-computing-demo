@@ -68,6 +68,32 @@ python vqe_demo.py
 - Quantum machine learning exploration
 
 ---
+# Monte Carlo Option Pricing
+
+This project compares Monte Carlo simulation with the Black-Scholes analytical solution for European call option pricing.
+A numerical study of European call option pricing under the Black–Scholes framework using risk-neutral Monte Carlo simulation.
+
+## Methods
+- Risk-neutral Geometric Brownian Motion simulation
+- Analytical Black-Scholes formula
+- Error comparison
+-  Empirical convergence rate analysis (O(1/sqrt(N)))
+
+## Technologies
+- Python
+- NumPy
+- SciPy
+
+## Motivation
+Beyond quantum computing demonstrations, this extension highlights practical quantitative finance modeling. 
+
+The project demonstrates:
+- Risk-neutral valuation
+- Stochastic simulation
+- Convergence analysis
+- Numerical approximation of analytical models
+
+These are core skills in quantitative trading, derivatives pricing, and risk management.
 
 ## Author
 
