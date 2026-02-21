@@ -94,6 +94,22 @@ The project demonstrates:
 - Numerical approximation of analytical models
 
 These are core skills in quantitative trading, derivatives pricing, and risk management.
+## Results
+
+Parameters:
+S0 = 100
+K = 100
+r = 5%
+sigma = 20%
+T = 1 year
+
+Black–Scholes price: 10.45  
+Monte Carlo price (1e6 paths): 10.43  
+Absolute error: 0.02  
+
+95% Confidence Interval:
+[10.40, 10.46]
+
 
 ## Author
 
