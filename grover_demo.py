@@ -17,3 +17,5 @@ grover.x([0, 1])
 grover.h([0, 1])
 
 print(grover.draw())
+print("Measured distribution:", counts)
+print("Success probability:", success_prob)
