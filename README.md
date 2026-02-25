@@ -64,12 +64,15 @@ The optimization is performed using classical search over parameter space.
 The variational principle guarantees that the estimated energy is an upper bound to the true ground state energy.
 
 ## Project Structure
-quantum-algorithms/
+
+```
+quantum-computing-demo/
 │
-├── grover_demo.py
-├── vqe_demo.py
-├── option_pricing.py
+├── grover_demo.py        # Grover search implementation
+├── vqe_demo.py           # Variational Quantum Eigensolver
+├── option_pricing.py     # Monte Carlo simulation for European call
 └── README.md
+```
 
 
 ## ⚙️ Technologies
