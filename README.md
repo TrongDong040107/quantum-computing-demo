@@ -1,150 +1,166 @@
-# Quantum Computing Algorithms – Dong Phu Trong
+# Tower of Hanoi
 
-This repository presents structured implementations of foundational quantum algorithms using Qiskit, with additional numerical modeling for comparison and validation.
+## 1. Introduction
 
-The work emphasizes mathematical formulation, circuit-level construction, and hybrid quantum-classical optimization in the NISQ era.
+This repository contains two implementations of the Tower of Hanoi problem:
 
-The focus is on:
-- Near-term quantum computing (NISQ era)
-- Hybrid quantum-classical optimization
-- Applied mathematical modeling
+- Recursive implementation
+- Non-recursive implementation using stack
 
----
+The problem uses three rods:
 
-## 🔬 Quantum Algorithms Implemented
+- `A`: source rod
+- `B`: auxiliary rod
+- `C`: destination rod
 
-### 1️⃣ Grover's Search Algorithm
-- Demonstrates amplitude amplification
-- Marks target state using phase oracle
-- Includes measurement statistics and success probability analysis
-- Simulated on Qiskit backend
+The goal is to move all disks from rod `A` to rod `C`.
 
-File: `grover_demo.py`
+## 2. Rules
 
----
-
-### 2️⃣ Variational Quantum Eigensolver (VQE)
-- Hybrid quantum-classical optimization
-- Parameterized ansatz circuit
-- Ground state energy estimation of custom Hamiltonian
-- Exact diagonalization comparison
-- Energy landscape visualization
-
-File: `vqe_demo.py`
-
----
-## Mathematical Background
-
-### Grover Operator
-
-The Grover iteration is defined as:
-
-G = (2|s><s| − I) O
-
-where:
-|s> is the uniform superposition state  
-O is the oracle operator  
-
-This produces amplitude amplification of the marked state.
-The diffusion operator (2|s><s| − I) performs reflection about the mean amplitude, which enables quadratic speedup over classical search.
+1. Only one disk can be moved at a time.
+2. Only the top disk of a rod can be moved.
+3. A larger disk cannot be placed on top of a smaller disk.
 
 ---
 
-### Variational Quantum Eigensolver (VQE)
+## 3. Recursive Algorithm
 
-The objective function minimized in VQE is:
+To move `n` disks from rod `A` to rod `C`:
 
-E(θ) = ⟨ψ(θ)| H |ψ(θ)⟩
+1. Move `n - 1` disks from `A` to `B`.
+2. Move disk `n` from `A` to `C`.
+3. Move `n - 1` disks from `B` to `C`.
 
-where:
-ψ(θ) is a parameterized quantum state  
-H is the Hamiltonian operator  
+The base case occurs when `n = 1`.
 
-The optimization is performed using classical search over parameter space. 
-The variational principle guarantees that the estimated energy is an upper bound to the true ground state energy.
+The minimum number of moves is:
 
-## Project Structure
+`2^n - 1`
 
+### Complexity
+
+- Time complexity: `O(2^n)`
+- Space complexity: `O(n)`
+
+File:
+
+`recursive.cpp`
+
+---
+
+## 4. Non-recursive Algorithm
+
+The non-recursive version uses a stack to simulate the recursive call stack.
+
+Each task stores:
+
+- Number of disks
+- Source rod
+- Auxiliary rod
+- Destination rod
+- Current processing state
+
+The algorithm repeatedly takes a task from the stack until all disk movements are completed.
+
+### Complexity
+
+- Time complexity: `O(2^n)`
+- Space complexity: `O(n)`
+
+File:
+
+`non_recursive.cpp`
+
+---
+
+## 5. Test Cases
+
+### Test Case 1
+
+Input:
+
+```text
+1
 ```
-quantum-computing-demo/
-│
-├── grover_demo.py        # Grover search implementation
-├── vqe_demo.py           # Variational Quantum Eigensolver
-├── option_pricing.py     # Monte Carlo simulation for European call
-└── README.md
+
+Output:
+
+```text
+Move disk 1 from A to C
 ```
 
+Number of moves:
 
-## ⚙️ Technologies
-
-- Python 3.10+
-- Qiskit
-- NumPy
-- SciPy
-- Matplotlib
+`1`
 
 ---
 
-## ▶️ How to Run
+### Test Case 2
 
-Install dependencies:
+Input:
 
-pip install qiskit numpy scipy matplotlib
+```text
+2
+```
 
-Run Grover:
+Output:
 
-python grover_demo.py
+```text
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+```
 
-Run VQE:
+Number of moves:
 
-python vqe_demo.py
-
----
-While the primary focus is quantum algorithms, classical stochastic modeling is included to demonstrate hybrid computational reasoning and numerical validation skills.
-
-# 📈 Classical Modeling Extension: Monte Carlo Option Pricing
-
-To complement quantum simulations, this repository includes a classical Monte Carlo implementation for European call option pricing under the Black–Scholes framework.
-
-This demonstrates:
-
-- Risk-neutral valuation
-- Geometric Brownian Motion simulation
-- Analytical Black–Scholes validation
-- Convergence rate analysis (O(1/√N))
-- 95% confidence interval estimation
-
-File: `option_pricing.py`
+`3`
 
 ---
 
-## Numerical Results
+### Test Case 3
 
-Parameters:
-- S₀ = 100
-- K = 100
-- r = 5%
-- σ = 20%
-- T = 1 year
+Input:
 
-Black–Scholes price: 10.45  
-Monte Carlo price (1e6 paths): 10.43  
-Absolute error: 0.02  
-95% Confidence Interval: [10.40, 10.46]
+```text
+3
+```
+
+Output:
+
+```text
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Move disk 3 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C
+```
+
+Number of moves:
+
+`7`
 
 ---
 
-## 🚀 Future Work
+## 6. Compile and Run
 
-- QAOA implementation
-- Noise modeling and error mitigation
-- Hardware backend experiments (IBM Quantum)
-- Quantum optimization research
+Compile recursive version:
+
+```bash
+g++ recursive.cpp -o recursive
+./recursive
+```
+
+Compile non-recursive version:
+
+```bash
+g++ non_recursive.cpp -o non_recursive
+./non_recursive
+```
 
 ---
 
-## 👤 Author
+## 7. Expected Result
 
-Dong Phu Trong  
-Electronics & Telecommunications Engineering – HUST  
-Research Interests: Quantum Computing | Hybrid Optimization | Applied Mathematics
+Both implementations should produce the same sequence of moves for the same number of disks.
